@@ -1,0 +1,63 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main()
+{
+    queue<string> q;
+    int choice;
+    string doc;
+
+    while(1)
+    {
+        cout << "\n1. Add Document";
+        cout << "\n2. Print Document";
+        cout << "\n3. Display Documents";
+        cout << "\n4. Exit";
+        cout << "\nEnter choice: ";
+        cin >> choice;
+
+        if(choice == 1)
+        {
+            cout << "\nEnter document: ";
+            cin >> doc;
+            q.push(doc);
+
+            cout << "\nDocument added successfully!\n";
+        }
+
+        else if(choice == 2)
+        {
+            if(q.empty())
+                cout << "\nNo document\n";
+            else
+            {
+                cout << "\nPrinting: " << q.front() << "\n";
+                q.pop();
+            }
+        }
+
+        else if(choice == 3)
+        {
+            cout << "\nPending Documents: ";
+
+            queue<string> temp = q;
+
+            while(!temp.empty())
+            {
+                cout << temp.front() << " ";
+                temp.pop();
+            }
+
+            cout << "\n";
+        }
+
+        else if(choice == 4)
+        {
+            cout << "\nProgram Ended.\n";
+            break;
+        }
+    }
+
+    return 0;
+}
